@@ -1,4 +1,7 @@
 ﻿/*
+This program is a IPV4 address checker.
+
+
 if ipAddress consists of 4 numbers
 and
 if each ipAddress number has no leading zeroes
