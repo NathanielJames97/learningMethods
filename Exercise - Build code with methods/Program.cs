@@ -40,4 +40,16 @@ void ValidateZeroes() {
 }
     validZeroes = true;
 }
-void ValidateRange() {}
+void ValidateRange() {
+string[] address = ipv4Input.Split(".", StringSplitOptions.RemoveEmptyEntries);
+    foreach (string number in address)
+    {
+        int value = int.Parse(number);
+        if (value < 0) || value > 255)
+        {
+            validRange = false;
+            return;
+        }
+    }
+    validRange = true;
+}
