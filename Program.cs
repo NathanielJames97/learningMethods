@@ -1,4 +1,7 @@
-﻿void DisplayRandomNumbers()
+﻿Console.WriteLine("Generating random numbers:");
+DisplayRandomNumbers();
+
+void DisplayRandomNumbers() 
 {
     Random random = new Random();
 
@@ -6,4 +9,6 @@
     {
         Console.Write($"{random.Next(1, 100)} ");
     }
+
+    Console.WriteLine();
 }
