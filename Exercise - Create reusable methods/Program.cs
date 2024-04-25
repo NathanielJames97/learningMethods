@@ -111,3 +111,12 @@ foreach (int val in times)
 }
 Console.WriteLine();
 }
+
+void AdjustTimes() 
+{
+ /* Adjust the times by adding the difference, keeping the value within 24 hours */
+    for (int i = 0; i < times.Length; i++) 
+    {
+        times[i] = ((times[i] + diff)) % 2400;
+    }
+}
