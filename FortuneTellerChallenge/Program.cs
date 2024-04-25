@@ -7,8 +7,13 @@ string[] bad = {"fear.", "avoid major decisions.", "may have unexpected outcomes
 string[] neutral = {"appreciate.", "enjoy time with friends.", "should align with your values.", "get in tune with nature."};
 
 Console.WriteLine("A fortune teller whispers the following words:");
-string[] fortune = (luck > 75 ? good : (luck < 25 ? bad : neutral));
+
+
+void tellFortune() {
+    string[] fortune = (luck > 75 ? good : (luck < 25 ? bad : neutral));
 for (int i = 0; i < 4; i++) 
 {
     Console.Write($"{text[i]} {fortune[i]} ");
+}
+
 }
