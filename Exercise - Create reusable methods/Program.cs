@@ -109,3 +109,5 @@ foreach (int val in times)
 
     Console.Write($"{time} ");
 }
+Console.WriteLine();
+}
