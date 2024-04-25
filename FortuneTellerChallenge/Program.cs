@@ -7,6 +7,7 @@ string[] bad = {"fear.", "avoid major decisions.", "may have unexpected outcomes
 string[] neutral = {"appreciate.", "enjoy time with friends.", "should align with your values.", "get in tune with nature."};
 
 Console.WriteLine("A fortune teller whispers the following words:");
+tellFortune();
 
 
 void tellFortune() {
