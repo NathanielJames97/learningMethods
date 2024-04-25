@@ -30,13 +30,14 @@ void ValidateLength() {
 void ValidateZeroes() {
     string[] address = ipv4Input.Split(".");
 
-    foreach (string number in address)
+    foreach (string number in address) 
+{
+    if (number.Length > 1 && number.StartsWith("0")) 
     {
-        if (number.Length > 1 && number.StartsWith("0"))
-        {
-            validZeroes = false;
-        }
+        validZeroes = false;
+        return;
     }
+}
     validZeroes = true;
 }
 void ValidateRange() {}
