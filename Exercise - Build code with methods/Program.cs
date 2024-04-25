@@ -9,54 +9,54 @@ then ipAddress is valid
 
 else ipAddress is invalid
 */
-string[] ipv4Input = {"107.31.1.5", "255.0.0.255", "555..0.555", "255...255"};
+string[] ipv4Input = { "107.31.1.5", "255.0.0.255", "555..0.555", "255...255" };
+string[] address;
 bool validLength = false;
-bool validZeroes = false;
-bool validRange = false;
+bool validZeroes = true; // Changed to default to true
+bool validRange = true; // Changed to default to true
 
-
-foreach (string ip in ipv4Input) 
+foreach (string ip in ipv4Input)
 {
-    ValidateLength(); 
-    ValidateZeroes(); 
+    address = ip.Split(".", StringSplitOptions.RemoveEmptyEntries);
+    ValidateLength();
+    ValidateZeroes();
     ValidateRange();
 
-    if (validLength && validZeroes && validRange) 
+    if (validLength && validZeroes && validRange)
     {
         Console.WriteLine($"{ip} is a valid IPv4 address");
-    } 
-    else 
+    }
+    else
     {
         Console.WriteLine($"{ip} is an invalid IPv4 address");
     }
 }
-void ValidateLength() {
-    string[] address = ipv4Input.Split(".");
-    validLength = address.Length == 4;
-};
-void ValidateZeroes() {
-    string[] address = ipv4Input.Split(".");
-
-    foreach (string number in address) 
+void ValidateLength()
 {
-    if (number.Length > 1 && number.StartsWith("0")) 
-    {
-        validZeroes = false;
-        return;
-    }
+    validLength = address.Length == 4;
 }
-    validZeroes = true;
-}
-void ValidateRange() {
-string[] address = ipv4Input.Split(".", StringSplitOptions.RemoveEmptyEntries);
+void ValidateZeroes()
+{
+
     foreach (string number in address)
     {
-        int value = int.Parse(number);
-        if (value < 0) || value > 255)
+        if (number.Length > 1 && number.StartsWith("0"))
+        {
+            validZeroes = false;
+            return;
+        }
+    }
+    // validZeroes should remain true unless a leading zero is found
+}
+void ValidateRange()
+{
+    foreach (string number in address)
+    {
+        int value;
+        if (!int.TryParse(number, out value) || value < 0 || value > 255)
         {
             validRange = false;
             return;
         }
     }
-    validRange = true;
 }
